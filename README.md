@@ -1,9 +1,5 @@
 # Assessment-Guided Partition for Hybrid Quantum-Classical Scheduling Workflows
 
-<p align="center">
-  <img src="assets/readme_figure.png" width="900" alt="HQC partition overview">
-</p>
-
 ## Problem
 
 Digital energy scheduling workflows such as unit commitment may include candidate quantum-enabled optimisation components. The practical question is not whether quantum optimisation is promising in general. The practical question is whether a quantum component is admissible for a workflow and, if so, which stages should remain classical and which may be quantum. The working question is: "Given a scheduling workflow and a candidate quantum-enabled optimisation component, is the component admissible, and where could it be placed in the workflow?"
@@ -15,6 +11,12 @@ Digital energy scheduling workflows such as unit commitment may include candidat
 - applies conservative assessment rules,
 - outputs a recommended hybrid partition and blocking rationale,
 - extracts simple workflow features from selected PGLib-UC cases.
+
+The workflow figure below shows the intended reading order of the artifact: source grounding, case-sheet construction, component assessment, and stage-wise partition recommendation.
+
+<p align="center">
+  <img src="assets/workflow_partition_flow.png" width="980" alt="Workflow case-sheet, assessment, and partition flow">
+</p>
 
 ## Data/source grounding
 
