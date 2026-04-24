@@ -3,10 +3,10 @@
 Assessment-guided partition for hybrid quantum-classical scheduling workflows.
 
 <p align="center">
-  <img src="assets/hqc_partition_readme_nondeffensive.svg" width="900" alt="HQC partition overview">
+  <img src="assets/readme_figure.png" width="900" alt="HQC partition overview">
 </p>
 
-For detailed reference, see the PNG figure at `assets/readme_figure.png`.
+For reference detail, see the PNG figure at `assets/readme_figure.png`.
 
 ## Problem
 
@@ -52,3 +52,7 @@ python scripts/run_partition_demo.py
 Expected output:
 - `outputs/demo/partition_report.json`
 - `outputs/demo/partition_report.md`
+
+## Current status
+
+This is a small research seed. The current demo is rule-based and source-grounded. It does not solve unit commitment, execute quantum algorithms, or evaluate deployment performance. The demo output shows how a candidate quantum-enabled component is conservatively assessed and placed only in the binary commitment stage under fallback.
