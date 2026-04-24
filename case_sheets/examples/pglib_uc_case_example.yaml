@@ -1,0 +1,19 @@
+case:
+  case_id: pglib_uc_reference_case
+  source_id: pglib_uc
+  source_url: "https://github.com/power-grid-lib/pglib-uc"
+  workflow_type: unit_commitment_benchmark_case
+  scheduling_problem: unit_commitment
+  horizon_hours: 24
+  num_generators: null
+  has_reserve_requirement: true
+  has_ramp_constraints: true
+  has_min_up_down_constraints: true
+  has_startup_shutdown_costs: true
+  has_renewables: null
+  has_storage: false
+  rolling_horizon: false
+  notes:
+    - "Hand-authored example grounded in the public PGLib-UC benchmark family."
+    - "Generator count depends on the selected benchmark instance and is therefore left unspecified here."
+    - "This example captures benchmark-style metadata only; it is not a deployment record."

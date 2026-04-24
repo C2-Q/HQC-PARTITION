@@ -1,0 +1,22 @@
+components:
+  - component_id: planqk_qaoa_uc_component
+    source_id: planqk_euc
+    source_url: "https://github.com/PlanQK/EnergyUnitCommitment"
+    method_type: qaoa
+    target_subproblem: unit_commitment_binary_core
+    evidence_level: simulated
+    classical_comparator: acceptable
+    provider_dependency: cloud_qpu
+    encoding_overhead: high
+    scalability_note: "PlanQK README states QAOA via Qiskit runtime is extremely limited in problem size; treat as exploratory."
+
+  - component_id: planqk_sqa_uc_component
+    source_id: planqk_euc
+    source_url: "https://github.com/PlanQK/EnergyUnitCommitment"
+    method_type: quantum_annealing
+    target_subproblem: unit_commitment_binary_core
+    evidence_level: simulated
+    classical_comparator: acceptable
+    provider_dependency: simulator
+    encoding_overhead: medium
+    scalability_note: "Alternative simulated component included as a candidate quantum-enabled optimisation component, not as deployment evidence."

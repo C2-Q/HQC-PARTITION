@@ -1,0 +1,78 @@
+{
+  "case": {
+    "case_id": "pypsa_uc_workflow_example",
+    "source_id": "pypsa_uc",
+    "source_url": "https://docs.pypsa.org/latest/examples/unit-commitment/",
+    "workflow_type": "scheduling_workflow",
+    "scheduling_problem": "unit_commitment",
+    "horizon_hours": 24,
+    "num_generators": null,
+    "has_reserve_requirement": null,
+    "has_ramp_constraints": true,
+    "has_min_up_down_constraints": true,
+    "has_startup_shutdown_costs": true,
+    "has_renewables": null,
+    "has_storage": false,
+    "rolling_horizon": true,
+    "notes": [
+      "Hand-authored workflow case grounded in the public PyPSA unit commitment example.",
+      "The case focuses on workflow stages rather than reproducing a full PyPSA model.",
+      "Rolling horizon remains a classical control step in this prototype."
+    ]
+  },
+  "component": {
+    "component_id": "planqk_qaoa_uc_component",
+    "source_id": "planqk_euc",
+    "source_url": "https://github.com/PlanQK/EnergyUnitCommitment",
+    "method_type": "qaoa",
+    "target_subproblem": "unit_commitment_binary_core",
+    "evidence_level": "simulated",
+    "classical_comparator": "acceptable",
+    "provider_dependency": "cloud_qpu",
+    "encoding_overhead": "high",
+    "scalability_note": "PlanQK README states QAOA via Qiskit runtime is extremely limited in problem size; treat as exploratory."
+  },
+  "assessment": {
+    "admissibility": "exploratory",
+    "blocking_conditions": [
+      "Scalability or integration warnings require fallback and keep the component in exploratory status."
+    ],
+    "positive_conditions": [
+      "Classical comparator is acceptable.",
+      "Evidence level is simulated.",
+      "Target subproblem unit_commitment_binary_core is compatible with the case."
+    ],
+    "rationale": [
+      "Component is admissible only for exploratory assessment-guided partitioning."
+    ]
+  },
+  "partition": {
+    "partition_id": "pypsa_uc_workflow_example__planqk_qaoa_uc_component",
+    "stage_assignments": {
+      "data_preparation": "classical",
+      "binary_commitment": "quantum_candidate",
+      "dispatch_feasibility": "classical",
+      "ramp_and_min_up_down_checks": "classical",
+      "rolling_horizon_update": "classical",
+      "postprocessing": "classical"
+    },
+    "quantum_stage_ids": [
+      "binary_commitment"
+    ],
+    "classical_stage_ids": [
+      "data_preparation",
+      "dispatch_feasibility",
+      "ramp_and_min_up_down_checks",
+      "rolling_horizon_update",
+      "postprocessing"
+    ],
+    "fallback_required": true,
+    "rationale": [
+      "Exploratory partition allows only the discrete commitment core to be quantum-enabled.",
+      "Dispatch, feasibility repair, rolling horizon control, and postprocessing remain classical.",
+      "This is a limited exploratory partition, not a deployment recommendation.",
+      "Component is admissible only for exploratory assessment-guided partitioning."
+    ]
+  },
+  "warning": "This is assessment guidance, not solver performance."
+}

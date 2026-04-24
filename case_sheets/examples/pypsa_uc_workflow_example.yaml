@@ -1,0 +1,45 @@
+case:
+  case_id: pypsa_uc_workflow_example
+  source_id: pypsa_uc
+  source_url: "https://docs.pypsa.org/latest/examples/unit-commitment/"
+  workflow_type: scheduling_workflow
+  scheduling_problem: unit_commitment
+  horizon_hours: 24
+  num_generators: null
+  has_reserve_requirement: null
+  has_ramp_constraints: true
+  has_min_up_down_constraints: true
+  has_startup_shutdown_costs: true
+  has_renewables: null
+  has_storage: false
+  rolling_horizon: true
+  notes:
+    - "Hand-authored workflow case grounded in the public PyPSA unit commitment example."
+    - "The case focuses on workflow stages rather than reproducing a full PyPSA model."
+    - "Rolling horizon remains a classical control step in this prototype."
+
+stages:
+  - stage_id: data_preparation
+    description: Prepare demand, generator, and technical constraint inputs for the unit commitment run.
+    default_side: classical
+    rationale: Input assembly, validation, and model construction are deterministic preprocessing tasks.
+  - stage_id: binary_commitment
+    description: Solve the discrete on/off commitment core over the planning horizon.
+    default_side: quantum_candidate
+    rationale: Binary commitment has discrete structure and is the narrowest place to test a quantum-enabled optimisation component.
+  - stage_id: dispatch_feasibility
+    description: Check dispatch feasibility and continuous power balance against the commitment output.
+    default_side: classical
+    rationale: Dispatch feasibility is continuous and system-coupled, so it remains classical in v0.
+  - stage_id: ramp_and_min_up_down_checks
+    description: Verify ramp-rate and minimum up/down-time consistency and repair infeasible schedules if needed.
+    default_side: classical
+    rationale: Constraint validation and repair should remain classical because they act as safety and feasibility guards.
+  - stage_id: rolling_horizon_update
+    description: Advance the optimisation window and update state between horizons.
+    default_side: classical
+    rationale: Rolling horizon control remains classical because it coordinates workflow state and handoff logic.
+  - stage_id: postprocessing
+    description: Export schedules, summaries, and traceable decision outputs.
+    default_side: classical
+    rationale: Reporting and downstream integration are classical postprocessing tasks.

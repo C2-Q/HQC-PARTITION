@@ -1,0 +1,35 @@
+sources:
+  - id: pglib_uc
+    title: "Power Grid Lib - Unit Commitment"
+    url: "https://github.com/power-grid-lib/pglib-uc"
+    use_in_repo: "Primary benchmark source for unit commitment case-sheet fields."
+    allowed_use: "Extract workflow/case-sheet metadata such as generators, horizon, load, reserves, ramp constraints, startup/shutdown costs, renewable series."
+    not_allowed_use: "Do not claim these are live deployment logs."
+
+  - id: pypsa_uc
+    title: "PyPSA Unit Commitment example"
+    url: "https://docs.pypsa.org/latest/examples/unit-commitment/"
+    use_in_repo: "Workflow semantics source: minimum up/down time, startup/shutdown costs, ramping, rolling horizon."
+    allowed_use: "Define scheduling workflow stages and constraints."
+    not_allowed_use: "Do not claim PyPSA provides a quantum partition method."
+
+  - id: planqk_euc
+    title: "PlanQK EnergyUnitCommitment"
+    url: "https://github.com/PlanQK/EnergyUnitCommitment"
+    use_in_repo: "Reference for candidate quantum components in unit commitment workflows."
+    allowed_use: "Use as evidence that QAOA/annealing-style components exist as solver options."
+    not_allowed_use: "Do not copy solver performance claims; do not claim QAOA scales."
+
+  - id: pypsa_stoch_uc
+    title: "PyPSA-stochUC"
+    url: "https://github.com/PPGS-Tools/PyPSA-stochUC"
+    use_in_repo: "Representative future case: waste-to-energy plant with heat storage and BESS."
+    allowed_use: "Mention as a representative later case for digital energy scheduling."
+    not_allowed_use: "Do not use as the primary benchmark in v0."
+
+  - id: sixgess
+    title: "6G Enabled Sustainable Society"
+    url: "https://www.6gflagship.com/6gess/"
+    use_in_repo: "Context for data-driven and digitised energy systems."
+    allowed_use: "Use only in motivation."
+    not_allowed_use: "Do not claim this repo is an operational 6G system."
