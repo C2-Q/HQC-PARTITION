@@ -46,6 +46,12 @@ Expected:
 - `outputs/case_features/pglib_uc_case_features.csv`
 - `outputs/case_features/fig_case_feature_matrix.png`
 
+The selected PGLib-UC cases share the core unit commitment structure while differing in reserve and renewable-related features. In this subset, ramp limits, minimum up/down constraints, and startup/shutdown costs are present throughout; reserve requirements vary across the California cases, and renewables appear in the FERC cases. The figure is metadata-level only and is used to support case-sheet construction rather than solver evaluation.
+
+<p align="center">
+  <img src="outputs/case_features/fig_case_feature_matrix.png" width="900" alt="Selected PGLib-UC case feature matrix">
+</p>
+
 ## Current status
 
 This is a small research seed. The demo remains a conservative rule-based partition advisor. The repository includes selected PGLib-UC case-feature extraction and a feature-matrix figure based on selected public PGLib-UC cases. The output is assessment guidance, not solver performance.
