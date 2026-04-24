@@ -2,7 +2,11 @@
 
 Assessment-guided partition for hybrid quantum-classical scheduling workflows.
 
-<img src="assets/readme_figure.png" alt="Assessment-guided partition figure" width="800" />
+<p align="center">
+  <img src="assets/hqc_partition_readme_nondeffensive.svg" width="900" alt="HQC partition overview">
+</p>
+
+For detailed reference, see the PNG figure at `assets/readme_figure.png`.
 
 ## Problem
 
