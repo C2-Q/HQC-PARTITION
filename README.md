@@ -46,12 +46,14 @@ Expected:
 - `outputs/case_features/pglib_uc_case_features.csv`
 - `outputs/case_features/fig_case_feature_matrix.png`
 
-The selected PGLib-UC cases share the core unit commitment structure while differing in reserve and renewable-related features. In this subset, ramp limits, minimum up/down constraints, and startup/shutdown costs are present throughout; reserve requirements vary across the California cases, and renewables appear in the FERC cases. The figure is metadata-level only and is used to support case-sheet construction rather than solver evaluation.
+The matrix summarises case structure across the selected PGLib-UC benchmark set. Rows are selected PGLib-UC cases, columns are workflow-relevant features, and each cell records whether that feature is present, absent, or unknown for the case. In this subset, ramp limits, minimum up/down constraints, and startup/shutdown costs are present throughout; reserve requirements vary across the California cases, and renewables appear in the FERC cases. The figure grounds later assessment and partition decisions at the case-sheet level.
 
 <p align="center">
   <img src="outputs/case_features/fig_case_feature_matrix.png" width="900" alt="Selected PGLib-UC case feature matrix">
 </p>
 
+One concrete reading of the matrix is straightforward. `ca_2014_09_01_reserves_0` and `ca_2014_09_01_reserves_1` share the same core unit commitment structure, but the reserve requirement changes from absent to present. That means the binary commitment core still exists in both cases, while the surrounding feasibility and reliability checks become stricter once reserve handling enters the workflow. The `ferc_2015_01_01_lw` and `ferc_2015_01_01_hw` cases add renewables on top of the same core structure, which makes them useful as later cases where a conservative partition should keep dispatch, feasibility, and workflow control on the classical side.
+
 ## Current status
 
-This is a small research seed. The demo remains a conservative rule-based partition advisor. The repository includes selected PGLib-UC case-feature extraction and a feature-matrix figure based on selected public PGLib-UC cases. The output is assessment guidance, not solver performance.
+The repository is a small research seed. The demo remains a conservative rule-based partition advisor. The repository includes selected PGLib-UC case-feature extraction and a feature-matrix figure based on selected public PGLib-UC cases. The output provides assessment guidance for workflow partition decisions.
