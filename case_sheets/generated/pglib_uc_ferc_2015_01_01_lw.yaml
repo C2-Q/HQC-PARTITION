@@ -1,0 +1,17 @@
+case:
+  case_id: pglib_uc_ferc_2015_01_01_lw
+  source_id: pglib_uc
+  source_url: https://raw.githubusercontent.com/power-grid-lib/pglib-uc/master/ferc/2015-01-01_lw.json
+  workflow_type: unit_commitment_benchmark_case
+  scheduling_problem: unit_commitment
+  horizon_hours: 48
+  num_generators: 934
+  has_reserve_requirement: true
+  has_ramp_constraints: true
+  has_min_up_down_constraints: true
+  has_startup_shutdown_costs: true
+  has_renewables: true
+  has_storage: false
+  rolling_horizon: null
+  notes:
+  - No storage collection found in the benchmark case structure; treated as absent.

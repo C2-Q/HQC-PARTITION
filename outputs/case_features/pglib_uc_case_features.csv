@@ -1,0 +1,7 @@
+case_id,source_url,horizon_hours,num_generators,has_reserve_requirement,has_ramp_constraints,has_min_up_down_constraints,has_startup_shutdown_costs,has_renewables,has_storage,rolling_horizon,notes_count
+pglib_uc_ca_2014_09_01_reserves_0,https://raw.githubusercontent.com/power-grid-lib/pglib-uc/master/ca/2014-09-01_reserves_0.json,48,610,False,True,True,True,False,False,,1
+pglib_uc_ca_2014_09_01_reserves_1,https://raw.githubusercontent.com/power-grid-lib/pglib-uc/master/ca/2014-09-01_reserves_1.json,48,610,True,True,True,True,False,False,,1
+pglib_uc_ca_2014_09_01_reserves_3,https://raw.githubusercontent.com/power-grid-lib/pglib-uc/master/ca/2014-09-01_reserves_3.json,48,610,True,True,True,True,False,False,,1
+pglib_uc_ca_2014_09_01_reserves_5,https://raw.githubusercontent.com/power-grid-lib/pglib-uc/master/ca/2014-09-01_reserves_5.json,48,610,True,True,True,True,False,False,,1
+pglib_uc_ferc_2015_01_01_lw,https://raw.githubusercontent.com/power-grid-lib/pglib-uc/master/ferc/2015-01-01_lw.json,48,934,True,True,True,True,True,False,,1
+pglib_uc_ferc_2015_01_01_hw,https://raw.githubusercontent.com/power-grid-lib/pglib-uc/master/ferc/2015-01-01_hw.json,48,934,True,True,True,True,True,False,,1
