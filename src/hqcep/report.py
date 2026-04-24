@@ -80,7 +80,7 @@ def write_markdown_report(
     lines.extend(
         [
             "",
-            "Warning: This is assessment guidance, not solver performance.",
+            "This is assessment guidance, not solver performance.",
             "",
         ]
     )

@@ -6,19 +6,17 @@ Assessment-guided partition for hybrid quantum-classical scheduling workflows.
   <img src="assets/readme_figure.png" width="900" alt="HQC partition overview">
 </p>
 
-For reference detail, see the PNG figure at `assets/readme_figure.png`.
-
 ## Problem
 
-Digital energy scheduling workflows such as unit commitment may include candidate quantum-enabled optimisation components. The practical question is not whether quantum optimisation is promising in general. The practical question is whether a quantum component is admissible for a workflow and, if so, which stages should remain classical and which may be quantum. This repo asks: "Given a scheduling workflow and a candidate quantum-enabled optimisation component, is the component admissible, and where could it be placed in the workflow?"
+Digital energy scheduling workflows such as unit commitment may include candidate quantum-enabled optimisation components. The practical question is not whether quantum optimisation is promising in general. The practical question is whether a quantum component is admissible for a workflow and, if so, which stages should remain classical and which may be quantum. This repository asks: "Given a scheduling workflow and a candidate quantum-enabled optimisation component, is the component admissible, and where could it be placed in the workflow?"
 
 ## What this repo does
 
-This repo:
 - builds small case sheets from public unit commitment sources,
 - represents candidate quantum components as evidence profiles,
-- applies simple assessment rules,
-- outputs a recommended hybrid partition and blocking rationale.
+- applies conservative assessment rules,
+- outputs a recommended hybrid partition and blocking rationale,
+- extracts simple workflow features from selected PGLib-UC cases.
 
 ## What this repo does not do
 
@@ -29,19 +27,13 @@ This repo:
 - does not replace energy-system simulators,
 - does not implement a scheduler/runtime.
 
-This repo does not solve energy optimisation problems. It does not run quantum algorithms. It does not claim quantum advantage.
-
 ## Data/source grounding
-
-The prototype is grounded in the following public sources:
 
 - PGLib-UC: https://github.com/power-grid-lib/pglib-uc
 - PyPSA Unit Commitment example: https://docs.pypsa.org/latest/examples/unit-commitment/
 - PlanQK EnergyUnitCommitment: https://github.com/PlanQK/EnergyUnitCommitment
-- PyPSA-stochUC: https://github.com/PPGS-Tools/PyPSA-stochUC
-- 6GESS: https://www.6gflagship.com/6gess/
-
-The repository records the role and limits of each source in [data_sources/sources.yaml](/Users/mac/Documents/GitHub/HQC-PARTITION/data_sources/sources.yaml).
+- PyPSA-stochUC as a later representative case: https://github.com/PPGS-Tools/PyPSA-stochUC
+- 6GESS energy-systems context: https://www.6gflagship.com/6gess/
 
 ## Quick demo
 
@@ -53,6 +45,16 @@ Expected output:
 - `outputs/demo/partition_report.json`
 - `outputs/demo/partition_report.md`
 
+## Case-feature extraction
+
+```bash
+python scripts/build_case_features.py
+```
+
+Expected:
+- `outputs/case_features/pglib_uc_case_features.csv`
+- `outputs/case_features/fig_case_feature_matrix.png`
+
 ## Current status
 
-This is a small research seed. The current demo is rule-based and source-grounded. It does not solve unit commitment, execute quantum algorithms, or evaluate deployment performance. The demo output shows how a candidate quantum-enabled component is conservatively assessed and placed only in the binary commitment stage under fallback.
+This is a small research seed. The demo remains a conservative rule-based partition advisor. The repository includes selected PGLib-UC case-feature extraction and a feature-matrix figure based on selected public PGLib-UC cases. The output is assessment guidance, not solver performance, and no unit commitment solver or quantum solver is executed.

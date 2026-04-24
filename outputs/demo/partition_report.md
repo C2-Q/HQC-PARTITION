@@ -20,4 +20,4 @@
 - This is a limited exploratory partition, not a deployment recommendation.
 - Component is admissible only for exploratory assessment-guided partitioning.
 
-Warning: This is assessment guidance, not solver performance.
+This is assessment guidance, not solver performance.

@@ -9,6 +9,7 @@ description = "Assessment-guided partition for hybrid quantum-classical scheduli
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+  "matplotlib>=3.8",
   "PyYAML>=6.0",
 ]
 
