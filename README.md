@@ -1,14 +1,12 @@
 # Assessment-Guided Partition for Hybrid Quantum-Classical Scheduling Workflows
 
-Assessment-guided partition for hybrid quantum-classical scheduling workflows.
-
 <p align="center">
   <img src="assets/readme_figure.png" width="900" alt="HQC partition overview">
 </p>
 
 ## Problem
 
-Digital energy scheduling workflows such as unit commitment may include candidate quantum-enabled optimisation components. The practical question is not whether quantum optimisation is promising in general. The practical question is whether a quantum component is admissible for a workflow and, if so, which stages should remain classical and which may be quantum. This repository asks: "Given a scheduling workflow and a candidate quantum-enabled optimisation component, is the component admissible, and where could it be placed in the workflow?"
+Digital energy scheduling workflows such as unit commitment may include candidate quantum-enabled optimisation components. The practical question is not whether quantum optimisation is promising in general. The practical question is whether a quantum component is admissible for a workflow and, if so, which stages should remain classical and which may be quantum. The working question is: "Given a scheduling workflow and a candidate quantum-enabled optimisation component, is the component admissible, and where could it be placed in the workflow?"
 
 ## What this repo does
 
@@ -46,14 +44,14 @@ Expected:
 - `outputs/case_features/pglib_uc_case_features.csv`
 - `outputs/case_features/fig_case_feature_matrix.png`
 
-The matrix summarises case structure across the selected PGLib-UC benchmark set. Rows are selected PGLib-UC cases, columns are workflow-relevant features, and each cell records whether that feature is present, absent, or unknown for the case. In this subset, ramp limits, minimum up/down constraints, and startup/shutdown costs are present throughout; reserve requirements vary across the California cases, and renewables appear in the FERC cases. The figure grounds later assessment and partition decisions at the case-sheet level.
+The matrix summarises case structure across the selected PGLib-UC benchmark set. Rows are selected cases, columns are workflow-relevant features, and each cell records whether that feature is present, absent, or unknown for the case. Ramp limits, minimum up/down constraints, and startup/shutdown costs are present throughout; reserve requirements vary across the California cases, and renewables appear in the FERC cases. That variation is the point: case sheets capture the workflow structure before admissibility and partition decisions are made.
 
 <p align="center">
   <img src="outputs/case_features/fig_case_feature_matrix.png" width="900" alt="Selected PGLib-UC case feature matrix">
 </p>
 
-One concrete reading of the matrix is straightforward. `ca_2014_09_01_reserves_0` and `ca_2014_09_01_reserves_1` share the same core unit commitment structure, but the reserve requirement changes from absent to present. That means the binary commitment core still exists in both cases, while the surrounding feasibility and reliability checks become stricter once reserve handling enters the workflow. The `ferc_2015_01_01_lw` and `ferc_2015_01_01_hw` cases add renewables on top of the same core structure, which makes them useful as later cases where a conservative partition should keep dispatch, feasibility, and workflow control on the classical side.
+One concrete reading is straightforward. `ca_2014_09_01_reserves_0` and `ca_2014_09_01_reserves_1` share the same commitment core, but reserve handling changes from absent to present. `ferc_2015_01_01_lw` and `ferc_2015_01_01_hw` add renewables on top of the same core structure. The assessment question then becomes narrower and more concrete: whether a candidate quantum-enabled component belongs only in the binary commitment stage while dispatch, feasibility, and workflow control remain classical.
 
 ## Current status
 
-The repository is a small research seed. The demo remains a conservative rule-based partition advisor. The repository includes selected PGLib-UC case-feature extraction and a feature-matrix figure based on selected public PGLib-UC cases. The output provides assessment guidance for workflow partition decisions.
+Small research seed. Conservative rule-based partition advisor. Includes selected PGLib-UC case-feature extraction and a feature-matrix figure. Output is assessment guidance for workflow partition decisions.
