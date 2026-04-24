@@ -2,7 +2,7 @@
 
 Assessment-guided partition for hybrid quantum-classical scheduling workflows.
 
-![Assessment-guided partition figure](assets/readme_figure.png)
+<img src="assets/readme_figure.png" alt="Assessment-guided partition figure" width="800" />
 
 ## Problem
 
