@@ -18,15 +18,6 @@ Digital energy scheduling workflows such as unit commitment may include candidat
 - outputs a recommended hybrid partition and blocking rationale,
 - extracts simple workflow features from selected PGLib-UC cases.
 
-## What this repo does not do
-
-- does not solve unit commitment,
-- does not run QAOA,
-- does not validate deployment,
-- does not claim quantum advantage,
-- does not replace energy-system simulators,
-- does not implement a scheduler/runtime.
-
 ## Data/source grounding
 
 - PGLib-UC: https://github.com/power-grid-lib/pglib-uc
@@ -57,4 +48,4 @@ Expected:
 
 ## Current status
 
-This is a small research seed. The demo remains a conservative rule-based partition advisor. The repository includes selected PGLib-UC case-feature extraction and a feature-matrix figure based on selected public PGLib-UC cases. The output is assessment guidance, not solver performance, and no unit commitment solver or quantum solver is executed.
+This is a small research seed. The demo remains a conservative rule-based partition advisor. The repository includes selected PGLib-UC case-feature extraction and a feature-matrix figure based on selected public PGLib-UC cases. The output is assessment guidance, not solver performance.
